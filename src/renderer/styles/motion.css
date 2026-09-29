@@ -1,0 +1,39 @@
+:root { --ease-out: cubic-bezier(.22, 1, .36, 1); --motion-micro: 150ms; --motion-panel: 220ms; --motion-page: 260ms; --motion-modal: 240ms; }
+.page-content { flex: 1; display: flex; min-height: 0; animation: page-enter var(--motion-page) var(--ease-out) both; }
+@keyframes page-enter { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@keyframes detail-enter { from { opacity: 0; transform: translateY(3px) scale(.992); } to { opacity: 1; transform: none; } }
+@keyframes detail-exit { to { opacity: 0; transform: translateY(2px) scale(.996); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fade-out { to { opacity: 0; } }
+button { transition: transform var(--motion-micro) var(--ease-out), background-color var(--motion-micro) var(--ease-out), border-color var(--motion-micro) var(--ease-out), color var(--motion-micro) var(--ease-out); }
+button:active:not(:disabled) { transform: translateY(1px) scale(.99); }
+.window-controls button:active { transform: none; }
+.nav-item { isolation: isolate; }
+.nav-item.active { background: transparent; }
+.nav-item::after { content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0; border-radius: 3px; background: linear-gradient(90deg, rgba(213,199,174,.105), rgba(213,223,233,.025)); transition: opacity var(--motion-panel) var(--ease-out); }
+.nav-item.active::after { opacity: 1; }
+.nav-item::before { content: ''; position: absolute; top: 0; bottom: 0; left: 0; width: 3px; background: var(--gold); border-radius: 4px; opacity: 0; transition: opacity var(--motion-panel) var(--ease-out); }
+.nav-item.active::before { opacity: 1; }
+.panel { transition: border-color var(--motion-panel) var(--ease-out); }
+.panel:hover { border-color: #b5c4cf30; }
+.metric-card { transition: transform var(--motion-panel) var(--ease-out), border-color var(--motion-panel) var(--ease-out); }
+.metric-card:hover { transform: translateY(-1px); }
+.metric-value, .health-gauge strong, .diagnostic-stats strong, .services-table-row { font-variant-numeric: tabular-nums; }
+.metric-value { white-space: nowrap; }
+.metric-value span { min-width: 22px; }
+.status-dot, .service-status, .metric-trend, .diagnostic-stages li { transition: color var(--motion-panel) var(--ease-out), background-color var(--motion-panel) var(--ease-out); }
+.status-label { animation: fade-in 180ms var(--ease-out); }
+.gauge-value { transition: stroke-dasharray 180ms var(--ease-out), stroke var(--motion-panel) var(--ease-out); }
+.search-field, select, input { transition: border-color var(--motion-micro) var(--ease-out), background-color var(--motion-micro) var(--ease-out); }
+.search-results { animation: page-enter 180ms var(--ease-out); }
+.diagnostic-dialog[open] { animation: detail-enter var(--motion-modal) var(--ease-out) both; }
+.diagnostic-dialog[open]::backdrop { backdrop-filter: blur(2px); animation: fade-in var(--motion-modal) var(--ease-out) both; }
+.diagnostic-dialog.closing { animation: detail-exit 160ms var(--ease-out) both; pointer-events: none; }
+.diagnostic-dialog.closing::backdrop { animation: fade-out 160ms var(--ease-out) both; }
+.diagnostic-results, .diagnostic-progress > span { animation: page-enter 180ms var(--ease-out); }
+.latest-chart-point { animation: fade-in 220ms var(--ease-out); }
+.sparkline path { transition: stroke var(--motion-panel) var(--ease-out); }
+details { interpolate-size: allow-keywords; }
+details::details-content { block-size: 0; overflow: hidden; transition: block-size 220ms var(--ease-out), content-visibility 220ms allow-discrete; }
+details[open]::details-content { block-size: auto; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after, *::details-content { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

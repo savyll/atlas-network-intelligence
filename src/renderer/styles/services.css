@@ -1,0 +1,48 @@
+.services-page { flex: 1; min-width: 0; }
+.services-table { padding: 0 22px; }
+.services-table-heading, .services-table-row { display: grid; grid-template-columns: minmax(170px, 1.6fr) 115px .8fr .8fr 1fr 1fr; align-items: center; gap: 18px; width: 100%; text-align: left; }
+.services-table-heading { height: 46px; font-size: 10px; color: var(--muted); border-bottom: 1px solid var(--border); }
+.services-table-row { min-height: 70px; padding: 12px 0; font-size: 11px; border-bottom: 1px solid #bdcbd010; }
+.services-table-row:last-child { border: 0; }
+.services-table-row:hover { background: #dcc39406; }
+.services-table-row .service-status { justify-self: start; }
+.service-identity { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.service-identity .service-icon { flex: none; width: 24px; }
+.service-identity > span { min-width: 0; }
+.service-identity strong { display: block; font-size: 12px; font-weight: 400; overflow: hidden; text-overflow: ellipsis; }
+.service-identity small { display: block; margin-top: 6px; color: var(--faint); font-size: 9px; overflow: hidden; text-overflow: ellipsis; }
+.services-table-row time, .services-table-row small { color: var(--muted); }
+.services-table-row .sparkline { width: 100%; max-width: 130px; height: 30px; }
+.services-note { color: var(--muted); font-size: 10px; line-height: 1.9; margin-top: 18px; max-width: 720px; }
+.service-list button.service-row { width: 100%; padding: 0; text-align: left; }
+.service-list button.service-row:hover { background-color: #dcc39406; }
+.service-detail-heading { display: flex; align-items: center; gap: 16px; padding-right: 16px; }
+.service-detail-heading .service-icon { width: 26px; flex: none; }
+.service-detail-heading h2 { margin: 7px 0 0; }
+.service-detail-heading .service-status { margin-left: auto; }
+.service-url { overflow-wrap: anywhere; color: var(--muted); font-size: 10px !important; margin-top: 12px; }
+.service-measurements { display: flex; justify-content: space-between; gap: 14px; font-size: 10px; color: var(--muted); }
+.service-measurements strong { color: var(--text); font-weight: 400; margin-left: 6px; }
+.service-detail-chart { height: 155px; margin-top: 20px; position: relative; }
+.atlas-conclusion { border-left: 2px solid #d6b88080; padding: 3px 0 3px 14px; margin: 20px 0; }
+.atlas-conclusion p { font-size: 11px; margin-top: 8px; }
+.service-evidence { border-top: 1px solid var(--border); padding: 14px 0; }
+.service-evidence summary { cursor: pointer; color: #c4cbd1; font-size: 11px; }
+.service-evidence p { margin-top: 12px; font-size: 11px; overflow-wrap: anywhere; }
+.service-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.service-actions .primary-button { margin: 0; }
+.secondary-button { display: inline-flex; gap: 8px; align-items: center; border: 1px solid var(--border); border-radius: 5px; height: 40px; padding: 0 13px; font-size: 11px; color: var(--muted); }
+.secondary-button:hover { color: var(--text); border-color: #d3bb8870; }
+.remove-service { margin-left: auto; }
+.add-service-form input { display: block; width: 100%; margin-bottom: 18px; }
+.add-service-form .primary-button { margin-top: 6px; }
+.search-service { display: flex; align-items: center; gap: 5px; }
+.search-service > button:first-child { flex: 1; min-width: 0; }
+.search-results .search-diagnose { width: auto; flex: none; color: var(--gold); font-size: 9px; }
+.diagnostic-stages { display: flex; flex-wrap: wrap; gap: 14px 20px; list-style: none; padding: 18px 0 0; margin: 0; }
+.diagnostic-stages li { display: flex; gap: 6px; align-items: center; color: var(--faint); font-size: 9px; }
+.diagnostic-stages li > span { display: grid; place-items: center; border: 1px solid var(--border); border-radius: 50%; width: 18px; height: 18px; font-size: 8px; }
+.diagnostic-stages .current { color: var(--gold); }
+.diagnostic-stages .current > span { border-color: #e5c18b70; }
+.diagnostic-stages .complete { color: var(--green); }
+@media (max-width: 1250px) { .services-table { padding: 0 16px; } .services-table-heading, .services-table-row { grid-template-columns: minmax(140px, 1.4fr) 105px .7fr .7fr 1fr 75px; gap: 12px; } }
